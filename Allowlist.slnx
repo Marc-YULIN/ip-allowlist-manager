@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Allowlist.Api/Allowlist.Api.csproj" />
+    <Project Path="src/Allowlist.Core/Allowlist.Core.csproj" />
+    <Project Path="src/Allowlist.Infrastructure/Allowlist.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Allowlist.Tests/Allowlist.Tests.csproj" />
+  </Folder>
+</Solution>
