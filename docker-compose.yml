@@ -1,0 +1,35 @@
+services:
+  api:
+    build: .
+    ports:
+      - "5106:5106"
+    environment:
+      ASPNETCORE_ENVIRONMENT: Production
+      Database__Provider: Postgres
+      ConnectionStrings__Postgres: "Host=postgres;Port=5432;Database=allowlist;Username=allowlist;Password=${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}"
+      Jwt__SigningKey: "${JWT_SIGNING_KEY:?Set JWT_SIGNING_KEY in .env to at least 32 bytes}"
+      Seed__AdminPassword: "${ADMIN_PASSWORD:?Set ADMIN_PASSWORD in .env}"
+      Seed__ViewerPassword: "${VIEWER_PASSWORD:-}"
+      Cloudflare__Mode: Fake
+    volumes:
+      - appdata:/app/appdata
+    depends_on:
+      postgres:
+        condition: service_healthy
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: allowlist
+      POSTGRES_USER: allowlist
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U allowlist -d allowlist"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  appdata:
+  postgres_data:
