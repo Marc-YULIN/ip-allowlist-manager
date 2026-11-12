@@ -487,3 +487,5 @@ $RECYCLE.BIN/
 *.db-wal
 appdata/
 storage/
+
+src/Allowlist.Api/wwwroot/
