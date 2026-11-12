@@ -1,0 +1,3 @@
+[*.cs]
+# Scenario-based test names intentionally use underscores.
+dotnet_diagnostic.CA1707.severity = none
