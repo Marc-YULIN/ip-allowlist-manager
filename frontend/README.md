@@ -1,5 +1,11 @@
-# Vue 3 + TypeScript + Vite
+# Frontend development
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Vue 3, TypeScript, Pinia, Vue Router, and Ant Design Vue provide the administration interface.
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+Run the API on port 5106, then run `npm run dev` in this directory. The development server listens on port 5173 and proxies `/api` to the API.
+
+- `npm run test`: run the CIDR validation suite.
+- `npm run build`: type-check and emit the application into `../src/Allowlist.Api/wwwroot`.
+- `npm run preview`: inspect a production build locally; API requests require the API on the same origin or a reverse proxy.
+
+Sessions use session storage and expire when the API rejects the token. Viewer accounts can inspect entries, operations, snapshots, and IP decisions. Administrative changes, audit access, and key management require an Admin account. Complete API keys appear only in the creation dialog and are discarded when it closes.
