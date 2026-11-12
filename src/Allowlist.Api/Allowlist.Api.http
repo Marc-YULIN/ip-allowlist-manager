@@ -1,6 +1,42 @@
-@Allowlist.Api_HostAddress = http://localhost:5081
+@baseUrl = http://localhost:5106
 
-GET {{Allowlist.Api_HostAddress}}/weatherforecast/
-Accept: application/json
+### Sign in
+# @name login
+POST {{baseUrl}}/api/auth/login
+Content-Type: application/json
 
-###
+{"username":"admin","password":"ChangeMe!2026"}
+
+### Copy the returned token here
+@token = paste-token-here
+
+### Create a rule
+POST {{baseUrl}}/api/environments/dev/entries
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{"cidr":"192.0.2.7","kind":"Allow","description":"Demo workstation","owner":"Demo operator"}
+
+### Inspect synchronization evidence
+GET {{baseUrl}}/api/operations
+Authorization: Bearer {{token}}
+
+### Evaluate after synchronization
+GET {{baseUrl}}/api/check?ip=192.0.2.7&env=dev
+Authorization: Bearer {{token}}
+
+### Issue a scoped integration key
+POST {{baseUrl}}/api/integration-clients
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{"name":"Demo service","scopes":["ip:check"]}
+
+### Copy the one-time key here
+@apiKey = paste-key-here
+GET {{baseUrl}}/api/check?ip=192.0.2.7&env=dev
+X-Api-Key: {{apiKey}}
+
+### Snapshot drift (returns Allow and Block snapshots, each with listKind)
+POST {{baseUrl}}/api/environments/dev/reconcile?autoFix=false
+Authorization: Bearer {{token}}
