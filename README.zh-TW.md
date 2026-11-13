@@ -31,6 +31,16 @@
 | 整合金鑰（API keys） | 管理員建立金鑰、查看一次性密鑰、設定 scope 及撤銷。 |
 | IP 查詢（IP check） | 指定環境的判斷結果與命中規則。 |
 
+## 畫面截圖
+
+<img src="docs/images/entries.png" alt="各環境的允許與封鎖清單">
+
+*各環境的允許與封鎖清單*
+
+<img src="docs/images/drift.png" alt="漂移比對抓到遠端缺少的項目">
+
+*漂移比對抓到遠端缺少的項目*
+
 ## 架構
 
 ```mermaid

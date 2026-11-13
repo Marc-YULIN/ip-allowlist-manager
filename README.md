@@ -31,6 +31,16 @@ Administration screen guide:
 | API keys | Administrator-only creation, one-time secret display, scopes, and revocation. |
 | IP check | Decision and matched rule for the selected environment. |
 
+## Screenshots
+
+<img src="docs/images/entries.png" alt="IP entries with allow / block lists per environment">
+
+*IP entries with allow / block lists per environment*
+
+<img src="docs/images/drift.png" alt="Drift reconciliation detecting an entry missing from the remote list">
+
+*Drift reconciliation detecting an entry missing from the remote list*
+
 ## Architecture
 
 ```mermaid
