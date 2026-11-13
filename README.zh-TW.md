@@ -2,6 +2,8 @@
 
 # IP 白名單管理系統
 
+[![CI](https://github.com/Marc-YULIN/ip-allowlist-manager/actions/workflows/ci.yml/badge.svg)](https://github.com/Marc-YULIN/ip-allowlist-manager/actions/workflows/ci.yml) ![.NET 10](https://img.shields.io/badge/.NET-10-512BD4) ![License: MIT](https://img.shields.io/badge/license-MIT-green)
+
 集中管理各環境的 IP 允許／封鎖規則，以持久化 outbox 同步到 Cloudflare Lists，並提供具權限範圍的 IP 判斷 API。
 
 ## 背景

@@ -2,6 +2,8 @@ English | [繁體中文](README.zh-TW.md)
 
 # IP Allowlist Manager
 
+[![CI](https://github.com/Marc-YULIN/ip-allowlist-manager/actions/workflows/ci.yml/badge.svg)](https://github.com/Marc-YULIN/ip-allowlist-manager/actions/workflows/ci.yml) ![.NET 10](https://img.shields.io/badge/.NET-10-512BD4) ![License: MIT](https://img.shields.io/badge/license-MIT-green)
+
 Manage environment-specific IP allow/block rules, synchronize them with Cloudflare Lists through a durable outbox, and expose a scoped IP-decision API.
 
 ## Background
